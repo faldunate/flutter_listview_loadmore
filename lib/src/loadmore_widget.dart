@@ -11,7 +11,7 @@ class LoadMore extends StatefulWidget {
   static DelegateBuilder<LoadMoreDelegate> buildDelegate =
       () => DefaultLoadMoreDelegate();
   static DelegateBuilder<LoadMoreTextBuilder> buildTextBuilder =
-      () => DefaultLoadMoreTextBuilder.chinese;
+      () => DefaultLoadMoreTextBuilder.spanish;
 
   /// Only support [ListView],[SliverList]
   final Widget child;
@@ -460,8 +460,31 @@ String _buildEnglishText(LoadMoreStatus status) {
   return text;
 }
 
+String _buildSpanishText(LoadMoreStatus status) {
+  String text;
+  switch (status) {
+    case LoadMoreStatus.fail:
+      text = "falla de carga, toque para volver a intentar";
+      break;
+    case LoadMoreStatus.idle:
+      text = "cargando";
+      break;
+    case LoadMoreStatus.loading:
+      text = "un momento ...";
+      break;
+    case LoadMoreStatus.nomore:
+      text = "finish :p";
+      break;
+    default:
+      text = "";
+  }
+  return text;
+}
+
 class DefaultLoadMoreTextBuilder {
   static const LoadMoreTextBuilder chinese = _buildChineseText;
 
   static const LoadMoreTextBuilder english = _buildEnglishText;
+
+  static const LoadMoreTextBuilder spanish = _buildSpanishText;
 }
