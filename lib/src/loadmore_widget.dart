@@ -397,7 +397,7 @@ class DefaultLoadMoreDelegate extends LoadMoreDelegate {
               width: _loadmoreIndicatorSize,
               height: _loadmoreIndicatorSize,
               child: CircularProgressIndicator(
-                backgroundColor: Colors.blue,
+                backgroundColor: Colors.deepPurple[700],
               ),
             ),
             Padding(
@@ -473,7 +473,7 @@ String _buildSpanishText(LoadMoreStatus status) {
       text = "un momento ...";
       break;
     case LoadMoreStatus.nomore:
-      text = "finish :p";
+      text = "llegaste al final 😋";
       break;
     default:
       text = "";
